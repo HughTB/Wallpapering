@@ -9,8 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="default.jpg" />
     <None Remove="taskbarIcon.ico" />
     <None Remove="trole.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="default.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -33,9 +40,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="default.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
