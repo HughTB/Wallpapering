@@ -1,0 +1,59 @@
+﻿<Window x:Class="WallpaperingWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:local="clr-namespace:WallpaperingWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ShowInTaskbar="False" WindowStyle="None" Loaded="Window_Loaded" ResizeMode="NoResize" Closed="Window_Closed" StateChanged="Window_StateChanged">
+
+    <Grid>
+        <MediaElement x:Name="meBackground" Stretch="UniformToFill" Margin="0,0,0,0" IsMuted="True" Panel.ZIndex="1" MediaEnded="meBackground_MediaEnded" LoadedBehavior="Manual" Loaded="meBackground_Loaded"/>
+        <Label x:Name="lblClock" Content="00:00:00" FontFamily="Consolas" FontSize="36" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="300" Height="50" VerticalAlignment="Center" Panel.ZIndex="2"/>
+        <Label x:Name="lblDate" Content="Tuesday, July 5" FontFamily="Consolas" FontSize="20" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,75,0,0" Panel.ZIndex="2"/>
+        <tb:TaskbarIcon
+            x:Name="TaskbarIcon"
+            ToolTipText="Wallpapering"
+            IconSource="taskbarIcon.ico">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="btnBackground2" Header="Change Background" Click="btnBackground_Click"/>
+                    <MenuItem Header="Clock">
+                        <MenuItem x:Name="TwelveHr2" Header="12 Hour" IsCheckable="True" Checked="TwelveHr_Checked" Unchecked="TwelveHr_Unchecked"/>
+                        <MenuItem x:Name="InvertClock2" Header="Invert Colour" IsCheckable="True" Checked="InvertClock_Checked" Unchecked="InvertClock_Unchecked"/>
+                    </MenuItem>
+                    <MenuItem x:Name="ShowHide2" Header="Hide" Click="ShowHide_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Add Button">
+                        <MenuItem Header="Application" Click="AddApplication"/>
+                        <MenuItem Header="Steam Game" Click="AddSteamGame"/>
+                        <MenuItem Header="Website" Click="AddWebsite"/>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem x:Name="Exit2" Header="Exit" Click="Exit_Click"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+        <WrapPanel x:Name="wrpButtons" Height="100" VerticalAlignment="Bottom" Margin="0,0,0,100" Panel.ZIndex="2" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center"/>
+    </Grid>
+
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="btnBackground" Header="Change Background" Click="btnBackground_Click"/>
+            <MenuItem Header="Clock">
+                <MenuItem x:Name="TwelveHr" Header="12 Hour" IsCheckable="True" Checked="TwelveHr_Checked" Unchecked="TwelveHr_Unchecked"/>
+                <MenuItem x:Name="InvertClock" Header="Invert Colour" IsCheckable="True" Checked="InvertClock_Checked" Unchecked="InvertClock_Unchecked"/>
+            </MenuItem>
+            <MenuItem x:Name="ShowHide" Header="Hide" Click="ShowHide_Click"/>
+            <Separator/>
+            <MenuItem Header="Add Button">
+                <MenuItem Header="Application" Click="AddApplication"/>
+                <MenuItem Header="Steam Game" Click="AddSteamGame"/>
+                <MenuItem Header="Website" Click="AddWebsite"/>
+            </MenuItem>
+            <Separator/>
+            <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+</Window>
